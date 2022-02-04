@@ -1,6 +1,8 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import Movie from './Movie';
+import MovieForm from './MovieForm';
+import MovieList from './MovieList';
 
 function App() {
   const [allMovies, setAllMovies] = useState([]);
@@ -33,6 +35,7 @@ function App() {
   function handleDeleteMovie(id) {
     const index = allMovies.findIndex(movie => movie.id === id);
     allMovies.splice(index, 1);
+    setFilter('');
     setAllMovies([...allMovies]);
   }
 
@@ -56,6 +59,25 @@ function App() {
           color: movieFormColor
         }} />
       </div>
+      <div className='movie-filter'>
+        <p>Filter Movies:</p>
+        <input value={currentFilter} onChange={(e) => setFilter(e.target.value)} />
+      </div>
+      <div className='movies-form'>
+        <MovieForm 
+          submitMovie={submitMovie}
+          movieTitle={movieTitle}
+          setMovieTitle={setMovieTitle}
+          movieFormDirector={movieFormDirector}
+          setMovieFormDirector={setMovieFormDirector}
+          movieFormYearReleased={movieFormYearReleased}
+          setMovieFormYearReleased={setMovieFormYearREleased}
+          movieFormColor={movieFormColor}
+          setMovieFormColor={setMovieFormColor} />   
+      </div>
+      <MovieList
+        movies={filteredMovies.length ? filteredMovies : allMovies}
+        handleDeleteMovie={handleDeleteMovie} />
     </div>
   );
 }
