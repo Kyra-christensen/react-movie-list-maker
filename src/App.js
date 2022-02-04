@@ -28,6 +28,12 @@ function App() {
     setMovieFormYearREleased('');
   }
 
+  function handleDeleteMovie(id) {
+    const index = allMovies.findIndex(movie => movie.id === id);
+    allMovies.splice(index, 1);
+    setAllMovies([...allMovies]);
+  }
+
   return (
     <div className="App">
       
