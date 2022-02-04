@@ -33,6 +33,7 @@ function App() {
   function handleDeleteMovie(id) {
     const index = allMovies.findIndex(movie => movie.id === id);
     allMovies.splice(index, 1);
+    setFilter('');
     setAllMovies([...allMovies]);
   }
 
@@ -55,6 +56,13 @@ function App() {
           year: movieFormYearReleased,
           color: movieFormColor
         }} />
+      </div>
+      <div className='movie-filter'>
+        <p>Filter Movies:</p>
+        <input value={currentFilter} onChange={(e) => setFilter(e.target.value)} />
+      </div>
+      <div >
+
       </div>
     </div>
   );
