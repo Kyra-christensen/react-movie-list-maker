@@ -8,6 +8,7 @@ function App() {
   const [movieFormDirector, setMovieFormDirector] = useState('');
   const [movieTitle, setMovieTitle] = useState('');
   const [movieFormColor, setMovieFormColor] = useState('pink');
+  const [currentFilter, setFilter] = useState('');
 
   function submitMovie(e) {
     e.preventDefault();
@@ -33,6 +34,16 @@ function App() {
     allMovies.splice(index, 1);
     setAllMovies([...allMovies]);
   }
+
+  useEffect(() => {
+    const filteredMovies = allMovies.
+      filter(movie =>
+        movie.title.includes(currentFilter)
+        || movie.director.includes(currentFilter)
+        || movie.year < (currentFilter)
+        || movie.color === (currentFilter));
+    setFilteredMovies(filteredMovies);
+  }, [currentFilter, allMovies]);
 
   return (
     <div className="App">
