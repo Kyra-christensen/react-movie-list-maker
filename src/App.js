@@ -37,13 +37,13 @@ function App() {
   }
 
   useEffect(() => {
-    const filteredMovies = allMovies.
+    const FilteredMovies = allMovies.
       filter(movie =>
         movie.title.includes(currentFilter)
         || movie.director.includes(currentFilter)
         || movie.year < (currentFilter)
         || movie.color === (currentFilter));
-    setFilteredMovies(filteredMovies);
+    setFilteredMovies(FilteredMovies);
   }, [currentFilter, allMovies]);
 
   return (
