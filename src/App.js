@@ -17,6 +17,7 @@ function App() {
     e.preventDefault();
 
     const newMovie = {
+      id: Math.ceil(Math.random() * 99999),
       title: movieTitle,
       director: movieFormDirector,
       color: movieFormColor,
@@ -31,8 +32,8 @@ function App() {
     setMovieFormYearREleased('');
   }
 
-  function handleDeleteMovie(title) {
-    const index = allMovies.findIndex(movie => movie.title === title);
+  function handleDeleteMovie(id) {
+    const index = allMovies.findIndex(movie => movie.id === id);
     allMovies.splice(index, 1);
     setFilter('');
     setAllMovies([...allMovies]);
@@ -60,10 +61,6 @@ function App() {
           color: movieFormColor
         }} />
       </div>
-      <div className='movie-filter'>
-        <p>Filter Movies:</p>
-        <input value={currentFilter} onChange={(e) => setFilter(e.target.value)} />
-      </div>
       <div className='movies-form'>
         <MovieForm 
           submitMovie={submitMovie}
@@ -75,6 +72,10 @@ function App() {
           setMovieFormYearReleased={setMovieFormYearREleased}
           movieFormColor={movieFormColor}
           setMovieFormColor={setMovieFormColor} />   
+      </div>
+      <div className='movie-filter'>
+        <p>Filter Movies:</p>
+        <input value={currentFilter} onChange={(e) => setFilter(e.target.value)} />
       </div>
       <MovieList
         movies={filteredMovies.length ? filteredMovies : allMovies}
