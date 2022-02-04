@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+.current-movie{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie{
+    width: 100%;
+}
+
+.movielist {
+    height: 300px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+form label{
+    display: inline-block;
+    margin: 10px;
+}
+
+form {
+    border: dotted 3px salmon;
+    margin: 10px;
+}

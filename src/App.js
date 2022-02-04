@@ -60,10 +60,6 @@ function App() {
           color: movieFormColor
         }} />
       </div>
-      <div className='movie-filter'>
-        <p>Filter Movies:</p>
-        <input value={currentFilter} onChange={(e) => setFilter(e.target.value)} />
-      </div>
       <div className='movies-form'>
         <MovieForm 
           submitMovie={submitMovie}
@@ -75,6 +71,10 @@ function App() {
           setMovieFormYearReleased={setMovieFormYearREleased}
           movieFormColor={movieFormColor}
           setMovieFormColor={setMovieFormColor} />   
+      </div>
+      <div className='movie-filter'>
+        <p>Filter Movies:</p>
+        <input value={currentFilter} onChange={(e) => setFilter(e.target.value)} />
       </div>
       <MovieList
         movies={filteredMovies.length ? filteredMovies : allMovies}
