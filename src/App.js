@@ -62,7 +62,7 @@ function App() {
         <p>Filter Movies:</p>
         <input value={currentFilter} onChange={(e) => setFilter(e.target.value)} />
       </div>
-      <div className='movie-form'>
+      <div className='movies-form'>
         <MovieForm 
           submitMovie={submitMovie}
           movieTitle={movieTitle}
@@ -70,7 +70,7 @@ function App() {
           movieFormDirector={movieFormDirector}
           setMovieFormDirector={setMovieFormDirector}
           movieFormYearReleased={movieFormYearReleased}
-          setMovieFormYearREleased={setMovieFormYearREleased}
+          setMovieFormYearReleased={setMovieFormYearREleased}
           movieFormColor={movieFormColor}
           setMovieFormColor={setMovieFormColor} />   
       </div>
