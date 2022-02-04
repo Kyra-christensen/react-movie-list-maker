@@ -17,6 +17,7 @@ function App() {
     e.preventDefault();
 
     const newMovie = {
+      id: Math.ceil(Math.random() * 99999),
       title: movieTitle,
       director: movieFormDirector,
       color: movieFormColor,
@@ -31,8 +32,8 @@ function App() {
     setMovieFormYearREleased('');
   }
 
-  function handleDeleteMovie(title) {
-    const index = allMovies.findIndex(movie => movie.title === title);
+  function handleDeleteMovie(id) {
+    const index = allMovies.findIndex(movie => movie.id === id);
     allMovies.splice(index, 1);
     setFilter('');
     setAllMovies([...allMovies]);
