@@ -9,6 +9,25 @@ function App() {
   const [movieTitle, setMovieTitle] = useState('');
   const [movieFormColor, setMovieFormColor] = useState('pink');
 
+  function submitMovie(e) {
+    e.preventDefault();
+
+    const newMovie = {
+      id: Math.ceil(Math.random() * 9999),
+      title: movieTitle,
+      director: movieFormDirector,
+      color: movieFormColor,
+      year: movieFormYearReleased,
+    };
+
+    setAllMovies([...allMovies, newMovie]);
+
+    setMovieFormColor('pink');
+    setMovieTitle('');
+    setMovieFormDirector('');
+    setMovieFormYearREleased('');
+  }
+
   return (
     <div className="App">
       
