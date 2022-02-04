@@ -1,5 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
+import Movie from './Movie';
 
 function App() {
   const [allMovies, setAllMovies] = useState([]);
@@ -47,7 +48,14 @@ function App() {
 
   return (
     <div className="App">
-      
+      <div className='current-movie'>
+        <Movie movie={{
+          title: movieTitle,
+          director: movieFormDirector,
+          year: movieFormYearReleased,
+          color: movieFormColor
+        }} />
+      </div>
     </div>
   );
 }
