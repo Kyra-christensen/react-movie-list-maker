@@ -17,7 +17,6 @@ function App() {
     e.preventDefault();
 
     const newMovie = {
-      id: Math.ceil(Math.random() * 9999),
       title: movieTitle,
       director: movieFormDirector,
       color: movieFormColor,
@@ -32,8 +31,8 @@ function App() {
     setMovieFormYearREleased('');
   }
 
-  function handleDeleteMovie(id) {
-    const index = allMovies.findIndex(movie => movie.id === id);
+  function handleDeleteMovie(title) {
+    const index = allMovies.findIndex(movie => movie.title === title);
     allMovies.splice(index, 1);
     setFilter('');
     setAllMovies([...allMovies]);
@@ -44,9 +43,11 @@ function App() {
       filter(movie =>
         movie.title.includes(currentFilter)
         || movie.director.includes(currentFilter)
-        || movie.year < (currentFilter)
+        || movie.year < (Number(currentFilter))
         || movie.color === (currentFilter));
+
     setFilteredMovies(FilteredMovies);
+
   }, [currentFilter, allMovies]);
 
   return (
